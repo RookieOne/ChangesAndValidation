@@ -1,0 +1,41 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <ControlTemplate x:Key="ErrorTemplate">
+        <Border BorderBrush="Red"
+                CornerRadius="2"
+                BorderThickness="2">
+            <Grid>
+                <AdornedElementPlaceholder />
+                <Rectangle Name="rect" Fill="Red" Opacity="0.2">
+                    <Rectangle.Triggers>
+                        <EventTrigger RoutedEvent="Rectangle.Loaded">
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <DoubleAnimation To="0.6" Storyboard.TargetName="rect" 
+                                Storyboard.TargetProperty="Opacity" 
+                                Duration="0:00:1" RepeatBehavior="Forever" AutoReverse="true" />
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                    </Rectangle.Triggers>
+                </Rectangle>
+            </Grid>
+            
+        </Border>
+    </ControlTemplate>
+
+    <Style TargetType="TextBox">
+        <Setter Property="FontSize" Value="15" />
+        <Setter Property="Validation.ErrorTemplate" Value="{StaticResource ErrorTemplate}" />
+
+        <!--<Style.Triggers>
+            <Trigger Property="Validation.HasError" Value="True">
+                <Setter Property="ToolTip"
+                        Value="{Binding RelativeSource={RelativeSource Self},
+                                        Path=(Validation.Errors)[0].ErrorContent}" />
+            </Trigger>
+        </Style.Triggers>-->
+    </Style>
+    
+</ResourceDictionary>
