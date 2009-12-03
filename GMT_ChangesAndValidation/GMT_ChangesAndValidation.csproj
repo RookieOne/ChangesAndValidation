@@ -108,6 +108,7 @@
     <Compile Include="PostSharp\DataErrorInfoAspect.cs" />
     <Compile Include="PostSharp\DataErrorInfoImplementation.cs" />
     <Compile Include="PostSharp\IsBindableAttribute.cs" />
+    <Compile Include="PostSharp\LogExceptionsAttribute.cs" />
     <Compile Include="PostSharp\NotifyPropertyChangedAspect.cs" />
     <Compile Include="PostSharp\NotifyPropertyChangedImplementation.cs" />
     <Compile Include="PostSharp\RaisePropertyChangedAspect.cs" />

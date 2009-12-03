@@ -19,9 +19,9 @@
                                ItemsSource="{Binding CashEstimates}">
                 <Controls:DataGrid.Columns>
                     <Framework:GmtColumn Header="Amount"
-                                         Binding="{Binding Amount, ValidatesOnDataErrors=True}" />
+                                         Binding="{Binding Amount}" />
                     <Framework:GmtColumn Header="Double"
-                                         Binding="{Binding Double, ValidatesOnDataErrors=True}" />
+                                         Binding="{Binding Double}" />
                 </Controls:DataGrid.Columns>
             </Controls:DataGrid>
 
