@@ -12,8 +12,12 @@ namespace GMT_ChangesAndValidation.ViewModels
         {
             var estimates = Builder<CashEstimate>.CreateListOfSize(10).Build();
             CashEstimates = new ObservableCollection<CashEstimate>(estimates);
+
+            var salesPersons = Builder<SalesPerson>.CreateListOfSize(10).Build();
+            SalesPersons = new ObservableCollection<SalesPerson>(salesPersons);
         }
 
         public ObservableCollection<CashEstimate> CashEstimates { get; set; }
+        public ObservableCollection<SalesPerson> SalesPersons { get; set; }
     }
 }

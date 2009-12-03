@@ -27,6 +27,7 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
                 <RowDefinition />
+                <RowDefinition />
             </Grid.RowDefinitions>
             
             <TextBlock Text="Cash Estimates" FontSize="16" />
@@ -41,6 +42,19 @@
                                                  Binding="{Binding Double, ValidatesOnDataErrors=True}" />
                 </Controls:DataGrid.Columns>
             </Controls:DataGrid>
+
+
+            <Controls:DataGrid Grid.Row="2"                                
+                               ItemsSource="{Binding SalesPersons}">
+                <Controls:DataGrid.Columns>
+                    <Controls:DataGridTextColumn Header="First Name"
+                                                 Binding="{Binding FirstName, ValidatesOnDataErrors=True}" />
+                    <Controls:DataGridTextColumn Header="Double"
+                                                 Binding="{Binding FirstName, ValidatesOnDataErrors=True}" />
+                </Controls:DataGrid.Columns>
+            </Controls:DataGrid>
+
+
         </Grid>
     </DataTemplate>
     
