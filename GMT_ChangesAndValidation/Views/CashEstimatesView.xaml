@@ -1,26 +1,8 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:ViewModels="clr-namespace:GMT_ChangesAndValidation.ViewModels"
-    xmlns:Controls="clr-namespace:Microsoft.Windows.Controls;assembly=WPFToolkit">
-
-    <Style TargetType="{x:Type Controls:DataGridRow}">
-        <Setter Property="ValidationErrorTemplate">
-            <Setter.Value>
-                <ControlTemplate>
-                    <Grid>
-                        <Ellipse Width="12" Height="12"
-                        Fill="Red" Stroke="Black"
-                        StrokeThickness="0.5"/>
-                        <TextBlock FontWeight="Bold" Padding="4,0,0,0"
-                        Margin="0" VerticalAlignment="Top" Foreground="White" Text="!"
-                        ToolTip="{Binding RelativeSource={RelativeSource
-                                 FindAncestor, AncestorType={x:Type Controls:DataGridRow}},
-                                 Path=(Validation.Errors)[0].ErrorContent}"/>
-                    </Grid>
-                </ControlTemplate>
-            </Setter.Value>
-        </Setter>
-    </Style>
+    xmlns:Controls="clr-namespace:Microsoft.Windows.Controls;assembly=WPFToolkit"
+    xmlns:Framework="clr-namespace:GMT_ChangesAndValidation.Framework">
     
     <DataTemplate DataType="{x:Type ViewModels:CashEstimatesViewModel}">
         <Grid>
@@ -33,18 +15,18 @@
             <TextBlock Text="Cash Estimates" FontSize="16" />
             
             <Controls:DataGrid Grid.Row="1" 
-                               AutoGenerateColumns="False"
+                               AutoGenerateColumns="False" 
                                ItemsSource="{Binding CashEstimates}">
                 <Controls:DataGrid.Columns>
-                    <Controls:DataGridTextColumn Header="Amount"
-                                                 Binding="{Binding Amount, ValidatesOnDataErrors=True}" />
-                    <Controls:DataGridTextColumn Header="Double"
-                                                 Binding="{Binding Double, ValidatesOnDataErrors=True}" />
+                    <Framework:GmtColumn Header="Amount"
+                                         Binding="{Binding Amount, ValidatesOnDataErrors=True}" />
+                    <Framework:GmtColumn Header="Double"
+                                         Binding="{Binding Double, ValidatesOnDataErrors=True}" />
                 </Controls:DataGrid.Columns>
             </Controls:DataGrid>
 
 
-            <Controls:DataGrid Grid.Row="2"                                
+            <!--<Controls:DataGrid Grid.Row="2"                                
                                ItemsSource="{Binding SalesPersons}">
                 <Controls:DataGrid.Columns>
                     <Controls:DataGridTextColumn Header="First Name"
@@ -52,7 +34,7 @@
                     <Controls:DataGridTextColumn Header="Double"
                                                  Binding="{Binding FirstName, ValidatesOnDataErrors=True}" />
                 </Controls:DataGrid.Columns>
-            </Controls:DataGrid>
+            </Controls:DataGrid>-->
 
 
         </Grid>

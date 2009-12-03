@@ -6,6 +6,7 @@
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="Styles\TextBoxStyles.xaml" />
+                <ResourceDictionary Source="Styles\ColumnTemplates.xaml" />
                 
                 <ResourceDictionary Source="Views\CashEstimatesView.xaml" />
             </ResourceDictionary.MergedDictionaries>

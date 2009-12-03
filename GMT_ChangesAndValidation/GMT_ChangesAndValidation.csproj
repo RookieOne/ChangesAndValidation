@@ -74,6 +74,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="Styles\ColumnTemplates.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Styles\TextBoxStyles.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -97,17 +101,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Entities\CashEstimate.cs" />
-    <Compile Include="Entities\Entity.cs" />
     <Compile Include="Entities\SalesPerson.cs" />
+    <Compile Include="Framework\GmtColumn.cs" />
+    <Compile Include="Framework\GridColumnValueProperties.cs" />
     <Compile Include="Framework\ValidationResult.cs" />
     <Compile Include="PostSharp\DataErrorInfoAspect.cs" />
     <Compile Include="PostSharp\DataErrorInfoImplementation.cs" />
-    <Compile Include="PostSharp\EntityAttribute.cs" />
-    <Compile Include="PostSharp\IsValidAttribute.cs" />
-    <Compile Include="PostSharp\NotifyAttribute.cs" />
+    <Compile Include="PostSharp\IsBindableAttribute.cs" />
     <Compile Include="PostSharp\NotifyPropertyChangedAspect.cs" />
     <Compile Include="PostSharp\NotifyPropertyChangedImplementation.cs" />
-    <Compile Include="PostSharp\OnChangedAttribute.cs" />
     <Compile Include="PostSharp\RaisePropertyChangedAspect.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
@@ -123,7 +125,6 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <Compile Include="ViewModels\CashEstimatesViewModel.cs" />
-    <Compile Include="ViewModels\ViewModel.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

@@ -5,9 +5,9 @@ using PostSharp.Laos;
 
 namespace GMT_ChangesAndValidation.PostSharp
 {
-    [Serializable]    
+    [Serializable]
     [MulticastAttributeUsage(MulticastTargets.Class)]
-    public class EntityAttribute : CompoundAspect
+    public class IsBindableAttribute : CompoundAspect
     {
         public override void ProvideAspects(object element, LaosReflectionAspectCollection collection)
         {
@@ -20,17 +20,17 @@ namespace GMT_ChangesAndValidation.PostSharp
 
         void AddRaisePropertyChangedAspects(object element, LaosReflectionAspectCollection collection)
         {
-            Type type = (Type)element;
+            Type type = (Type) element;
 
-            foreach ( PropertyInfo property in type.UnderlyingSystemType.GetProperties() )
+            foreach (PropertyInfo property in type.UnderlyingSystemType.GetProperties())
             {
-                if ( property.DeclaringType == type && property.CanWrite )
+                if (property.DeclaringType == type && property.CanWrite)
                 {
                     MethodInfo method = property.GetSetMethod(true);
 
-                    if ( !method.IsStatic )
+                    if (!method.IsStatic)
                     {
-                        collection.AddAspect( method, new RaisePropertyChangedAspect(property.Name) );
+                        collection.AddAspect(method, new RaisePropertyChangedAspect(property.Name));
                     }
                 }
             }

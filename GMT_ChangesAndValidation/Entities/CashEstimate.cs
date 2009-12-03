@@ -1,11 +1,11 @@
-﻿using GMT_ChangesAndValidation.Framework;
+﻿using System;
+using GMT_ChangesAndValidation.Framework;
 using GMT_ChangesAndValidation.PostSharp;
 
 namespace GMT_ChangesAndValidation.Entities
 {
-    [Notify]
-    [OnChanged]
-    public class CashEstimate : Entity
+    [IsBindable]
+    public class CashEstimate
     {
         public decimal Amount { get; set; }
         public decimal Double { get; set; }
@@ -15,26 +15,19 @@ namespace GMT_ChangesAndValidation.Entities
             Double = Amount*2;
         }
 
-        public ValidationResult AmountIsValid()
+        public void AmountIsValid(ValidationResult result)
         {
-            var result = new ValidationResult();
-
+            Console.WriteLine("Amount {0}", Amount);
             if (Amount < 0)
             {
                 result.SetError("Amount must be greater than 0");
             }
-
-            return result;
         }
 
-        public ValidationResult DoubleIsValid()
+        public void DoubleIsValid(ValidationResult result)
         {
-            var result = new ValidationResult();
-
             if (Amount == 10)
                 result.SetError("Amount can not be 10");
-
-            return result;
         }
     }
 }

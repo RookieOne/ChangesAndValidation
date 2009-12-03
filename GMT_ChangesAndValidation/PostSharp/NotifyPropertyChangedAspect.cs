@@ -14,12 +14,12 @@ namespace GMT_ChangesAndValidation.PostSharp
 
         public override Type GetPublicInterface(Type containerType)
         {
-            return typeof (INotifyPropertyChanged);
+            return typeof(INotifyPropertyChanged);
         }
 
         public override Type[] GetProtectedInterfaces(Type containerType)
         {
-            return new Type[] { typeof(INotifyPropertyChanged)};
+            return new[] { typeof(INotifyPropertyChanged) };
         }
 
         public override CompositionAspectOptions GetOptions()

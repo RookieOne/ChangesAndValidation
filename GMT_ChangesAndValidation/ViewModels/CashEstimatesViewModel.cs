@@ -5,8 +5,8 @@ using GMT_ChangesAndValidation.PostSharp;
 
 namespace GMT_ChangesAndValidation.ViewModels
 {
-    [Notify]
-    public class CashEstimatesViewModel : ViewModel
+    [IsBindable]
+    public class CashEstimatesViewModel
     {
         public CashEstimatesViewModel()
         {

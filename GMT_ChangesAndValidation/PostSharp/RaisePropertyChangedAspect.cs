@@ -16,7 +16,7 @@ namespace GMT_ChangesAndValidation.PostSharp
 
         public override void OnSuccess(MethodExecutionEventArgs eventArgs)
         {
-            var composedObj = (IComposed<INotifyPropertyChanged>) eventArgs.Instance;
+            var composedObj = (IComposed<INotifyPropertyChanged>)eventArgs.Instance;
             var implementation =
                 composedObj.GetImplementation(eventArgs.InstanceCredentials) as NotifyPropertyChangedImplementation;
 

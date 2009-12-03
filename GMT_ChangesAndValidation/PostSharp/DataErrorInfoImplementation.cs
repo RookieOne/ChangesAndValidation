@@ -31,8 +31,7 @@ namespace GMT_ChangesAndValidation.PostSharp
 
             var result = new ValidationResult();
 
-            method.Invoke(_Instance, new object[] {result});
-            ;
+            method.Invoke(_Instance, new object[] {result});            
 
             return (result.IsValid)
                        ? string.Empty

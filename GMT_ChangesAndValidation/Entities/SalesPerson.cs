@@ -3,7 +3,7 @@ using GMT_ChangesAndValidation.PostSharp;
 
 namespace GMT_ChangesAndValidation.Entities
 {
-    [Entity]
+    [IsBindable]
     public class SalesPerson
     {
         public string FirstName { get; set; }
